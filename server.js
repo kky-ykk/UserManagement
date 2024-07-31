@@ -26,9 +26,20 @@ const userRoutes=require("./routes/userRoutes");
 app.use("/user",userRoutes);
 
 
-app.use(express.static(path.join(__dirname,'ClientUI/dist')));
-app.get("*",(req,res)=>res.sendFile(path.join(__dirname,'ClientUI/dist/index.html')))
+// Serve static files from the 'ClientUI/dist' directory
+app.use(express.static(path.join(__dirname, 'ClientUI', 'dist')));
 
+// Catch-all route to serve the React app for any undefined routes
+app.get("*", (req, res) => {
+    const filePath = path.join(__dirname, 'ClientUI', 'dist', 'index.html');
+    console.log("Serving file:", filePath); // Log the file path being served
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.error("File not found:", err); // Log the error if the file is not found
+            res.status(404).send("File not found");
+        }
+    });
+});
 
 const PORT=process.env.PORT;
 app.listen(PORT,()=>{
