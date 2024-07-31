@@ -25,7 +25,7 @@ export default function UpdateProfile() {
   const getDatasWithToken=async ()=>{
     try {
       
-        const response=await axios.get("http://localhost:3000/user/getProfile",{
+        const response=await axios.get("https://usermanagement-igiq.onrender.com/user/getProfile",{
             headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -62,7 +62,7 @@ export default function UpdateProfile() {
     if (Object.entries(res).length === 0) {
       // console.log("updating.....................");
       try {
-        const response = await axios.put('http://localhost:3000/user/update',user,{
+        const response = await axios.put('https://usermanagement-igiq.onrender.com/user/update',user,{
           headers: { Authorization: `Bearer ${token}`,'Content-Type': 'application/json' }
       });
 

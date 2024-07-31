@@ -30,7 +30,7 @@ export default function Signup() {
 
     if (Object.entries(res).length === 0) {
       try {
-        const response = await axios.post('http://localhost:3000/user/signup', {
+        const response = await axios.post('https://usermanagement-igiq.onrender.com/user/signup', {
           name: credentials.name,
           mobile: credentials.mobile,
           email: credentials.email,
