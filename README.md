@@ -73,6 +73,6 @@
 
 ## Project Setup
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/kky-ykk/UserManagement.git
+### 1. Clone the Repository
+```bash
+git clone https://github.com/kky-ykk/UserManagement.git
